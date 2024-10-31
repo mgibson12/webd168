@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Box Model</title>
+    <style>
+        /*this is my css file*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ccc;
+            border-radius: 8px;
+            margin: 1em auto;
+            width: 500px;
+            font-family: "Helvetica Neue", "Helvetica", sans-serif;
+        }
+
+        article {
+            padding: 20px;
+            background-color: #fff;
+            /* background: url(images/bg2.png); */
+        }
+
+        h1 {
+            background: #42403E;
+            text-align: center;
+            line-height: 75px;
+            color: white;
+        }
+
+        p {
+            margin: 0 0 1em 0;
+        }
+
+        div {
+            border: 2px solid #000;
+            margin-bottom: 16px;
+            background-color: hsla(200, 100%, 30%, .5);
+        }
+
+        /* Box Model Styles Go Here */
+        div:nth-of-type(1) {
+            width: 100%;
+
+        }
+
+        div:nth-of-type(2) {
+            width: 460px;
+            /* padding: 20px; */
+        }
+
+        /* This rule is for floated elements */
+        /* .floatedElements div{
+	width: 140px;
+	padding: 20px;
+	margin: 10px;
+	text-align: center;
+	box-sizing:border-box;
+	background-color: hsla(62, 90%, 64%, 0.993);
+}
+ .floatedElements div:nth-of-type(odd) {
+	margin-left: 10px; 
+    margin-right: 10px;
+}  */
+
+        /* 
+THESE are the flexboxes in part 2 */
+
+        .flow {
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+        }
+
+        .flow2 {
+            flex: 1;
+            width: 140px;
+            padding: 20px;
+            background-color: #f1fb63;
+            border: 2px solid #000000;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .flow {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+            }
+
+            .flow2 {
+                flex: 1;
+                width: 95%;
+                padding: 5%;
+                background-color: #f5abeb;
+                border: 2px solid #000000;
+                text-align: center;
+            }
+        }
+
+        .box1 {
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+        }
+
+        .box2 {
+            flex: 1;
+            width: 140px;
+            padding: 20px;
+            background-color: #96e09c;
+            border: 2px solid #000000;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .box1 {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+            }
+
+            .box2 {
+                flex: 1;
+                width: 95%;
+                padding: 5%;
+                background-color: #a5a4f4;
+                border: 2px solid #000000;
+                text-align: center;
+            }
+        }
+
+
+        article:after {
+            visibility: hidden;
+            display: block;
+            content: " ";
+            clear: both;
+            height: 0;
+        }
+
+        footer {
+            background: #42403E;
+            padding: 10px 0;
+            color: white;
+            text-align: center;
+            border-radius: 0 0 8px 8px;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        #box {
+            background-color: hsla(200, 80%, 66%, 0.5);
+            border: 5px solid #000;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Example of the Box Model</h1>
+    <div id="box">HTML elements display as boxes on web pages. This div element is configured to have a blue background,
+        the browser default padding (which is no padding), and a black 5 pixel border. </div>
+
+    <article class="floatedElements">
+
+        <p>The "box model" in CSS works like this:
+            <br>
+            width + padding + border = actual visible/rendered width of box
+            and height + padding + border = actual visible/rendered height of box
+        </p>
+        <div class="box1">
+            <div class="box2">Box 1: Width = 100% (100% + 4)</div>
+            <div class="box2">Box 2: Width = 460px (460 + 4) </div>
+            <div class="box2">Box 3: Width = 460px + padding of 40px + 4px border (actual width is 504px)</div>
+        </div>
+    </article>
+
+    <article>
+
+        <p>Let's look at floated elements</p>
+        <div class="flow">
+            <div class="flow2">Floated Box 1</div>
+            <div class="flow2">Floated Box 2</div>
+            <div class="flow2">Floated Box 3</div>
+        </div>
+
+    </article>
+
+    <!-- <div class="flow">
+    <section>Section 1</section>
+    <section>Section 2</section>
+    <section>Section 3</section>
+</div> -->
+
+    <!-- Update the footer content with the correct year and your name -->
+    <footer>
+        <p>Copyright 2024, Marianne Gibson</p>
+    </footer>
+
+</body>
+
+</html>
