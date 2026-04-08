@@ -281,6 +281,32 @@ button:hover {
 
 /* Responsive Design */
 @media (max-width: 37.5rem) {
+  .main-menu {
+    flex-direction: column; /* Stacks navigation links vertically */
+    justify-content: center; /* Centers the group inside the nav */
+    align-items: stretch; /* Makes each menu item stretch across the available width */
+    gap: 0; /* Removes extra space between links */
+  }
+
+  .main-menu li {
+    width: 100%; /* Makes each list item span the full width */
+    text-align: center; /* Centers the link text */
+    border-bottom: 1px solid #333; /* Adds a divider line between links */
+  }
+
+  .main-menu li:last-child {
+    border-bottom: none; /* Removes the border from the last item */
+  }
+
+  .main-menu a {
+    display: block; /* Makes the entire row clickable */
+    padding: 0.5rem; /* Adds space inside each link */
+  }
+
+  .hero-text {
+    display: none;
+  }
+
   form {
     width: 90%; /* Reduces the form width on small screens */
     padding: 0.9375rem; /* Reduces inner spacing on small screens */
