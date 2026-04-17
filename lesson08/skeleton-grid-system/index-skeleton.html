@@ -2,113 +2,152 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Skeleton Grid System</title>
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1">
-  <link
-    href="https://fonts.googleapis.com/css?family=Raleway:400,300,600"
-    rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="css/custom.css">
+    <meta charset="utf-8" />
+    <title>Tailwind CSS Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 5rem;
+            /* offset for fixed nav */
+        }
+    </style>
 </head>
 
 <body>
-  <div class="container">
-    <!-- top section -->
-  <header class="header">
-      <div class="row">
-        <div class="four columns">
-          <p class="logo">My Company</p>
+
+    <!-- Header -->
+    <header style="background-image: url('header.jpg');">
+
+        <div>
+            <!-- Logo -->
+            <div>
+                My Company
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-toggle"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu">
+                ☰
+            </button>
+
+            <!-- Navigation -->
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Our Clients</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </nav>
         </div>
 
-        <nav class="eight columns nav">
-          <a class="button button-primary" href="#">Home</a>
-          <a class="button" href="#">Our Clients</a>
-          <a class="button" href="#">About Us</a>
-          <a class="button" href="#">Careers</a>
-        </nav>
-      </div>
-      <div class="row action">
-        <h1>We do great things</h1>
-        <h2>Donec pulvinar ullamcorper metus</h2>
-        <h2><a href="#" class="button button-primary">Learn
-            More</a></h2>
-      </div>
-    </div>
-  </header>
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu">
+            <a href="#">Home</a>
+            <a href="#">Our Clients</a>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+        </div>
 
-  <!-- info section -->
-  <section class="info">
-    <div class="container info">
-      <div class="row">
-        <h2>Graeco feugiat intellegam at vix</h2>
-      </div>
-      <div class="row">
-        <div class="four columns">
-          <p>Mei te possit instructior, idque delenit qui
-            et, dicit ludus commune vix ad. Ea modo dicam
-            cetero mel, case disputationi at est. Ad nam
-            adipisci dignissim posidonium, eius reque
-            temporibus ne mea. Vero antiopam ea vim. Ei
-            timeam electram vix. Eam at tollit erroribus, ea
-            eum idque legere epicuri. Sed quot legere
-            minimum cu, ex mei fastidii mandamus intellegam,
-            error consul ut per.</p>
-          <p><a href="#" class="button button-primary">More
-              info</a></p>
+        <!-- Hero Section -->
+        <div>
+            <h1>We do great things</h1>
+            <h2>Donec pulvinar ullamcorper metus</h2>
+            <a href="#">Learn More</a>
         </div>
-        <div class="four columns">
-          <p>Mei te possit instructior, idque delenit qui
-            et, dicit ludus commune vix ad. Ea modo dicam
-            cetero mel, case disputationi at est. Ad nam
-            adipisci dignissim posidonium, eius reque
-            temporibus ne mea. Vero antiopam ea vim. Ei
-            timeam electram vix. Eam at tollit erroribus, ea
-            eum idque legere epicuri. Sed quot legere
-            minimum cu, ex mei fastidii mandamus intellegam,
-            error consul ut per.</p>
-          <p><a href="#" class="button button-primary">More
-              info</a></p>
+
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="info">
+            <div>
+                <div>
+                    <h2>Graeco feugiat intellegam at vix</h2>
+                </div>
+
+                <div>
+                    <!-- Card 1 -->
+                    <div>
+                        <p>
+                             Mei te possit instructior, idque delenit qui et, dicit ludus commune vix ad. Ea modo
+                            dicam cetero mel, case disputationi at est. Ad nam adipisci dignissim posidonium, eius
+                            reque temporibus ne mea. Vero antiopam ea vim. Ei timeam electram vix. Eam at tollit
+                            erroribus, ea eum idque legere epicuri. Sed quot legere minimum cu, ex mei fastidii
+                            mandamus intellegam, error consul ut per.
+                        </p>
+                        <a href="#">More info</a>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div></div>
+
+                    <!-- Card 3 -->
+                    <div></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <div>
+
+                <!-- Newsletter Form -->
+                <div>
+                    <form>
+                        <label for="exampleEmailInput">
+                            Sign up for our newsletter
+                        </label>
+                        <div>
+                            <input type="email"
+                                   id="exampleEmailInput"
+                                   placeholder="test@mailbox.com"
+                                   aria-label="Email address" />
+
+                            <input type="submit"
+                                   value="Submit"
+                                   aria-label="Submit form" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Footer Text -->
+                <div>
+                    <p>
+                        © Your Name Goes Here,
+                        <span id="year"></span>.
+                    </p>
+                </div>
+
+            </div>
         </div>
-        <div class="four columns">
-          <p>Mei te possit instructior, idque delenit qui
-            et, dicit ludus commune vix ad. Ea modo dicam
-            cetero mel, case disputationi at est. Ad nam
-            adipisci dignissim posidonium, eius reque
-            temporibus ne mea. Vero antiopam ea vim. Ei
-            timeam electram vix. Eam at tollit erroribus, ea
-            eum idque legere epicuri. Sed quot legere
-            minimum cu, ex mei fastidii mandamus intellegam,
-            error consul ut per.</p>
-          <p><a href="#" class="button button-primary">More
-              info</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- footer -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="eight columns">
-          <p>© Your Name Goes Here, Current Year.</p>
-        </div>
-        <div class="four columns">
-          <form>
-            <label for="exampleEmailInput">Sign up for our
-              newsletter</label>
-            <input class="u-full-width" type="email"
-              placeholder="test@mailbox.com"
-              id="exampleEmailInput">
-            <input class="button-primary" type="submit"
-              value="Submit">
-          </form>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
+
+  <!-- JavaScript: Mobile Nav Toggle + Dynamic Year -->
+    <script>
+        const toggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        toggle.addEventListener("click", () => {
+            const isHidden = mobileMenu.classList.toggle("hidden");
+            toggle.setAttribute("aria-expanded", !isHidden);
+        });
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
 </body>
 
 </html>
