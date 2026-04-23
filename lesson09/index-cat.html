@@ -4,96 +4,97 @@
     <!-- Basic character encoding and responsive viewport setup -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 11 - Interactive SVG Cat</title>
+    <title>Interactive SVG Cat</title>
 
     <!-- Tailwind CSS CDN for utility classes used throughout the page -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-        /* =========================================================
-           PAGE-LEVEL CUSTOM CSS
-           These styles control animation and SVG-specific effects.
-           ========================================================= */
+     <style>
+    /* --------------------------------------------------
+       CUSTOM CSS FOR THE LESSON DEMO
+       -------------------------------------------------- */
 
-        /* Button press animation used when a control button is clicked */
-        @keyframes buttonClick {
-            0% { transform: scale(1); }
-            50% { transform: scale(0.92); }
-            100% { transform: scale(1); }
-        }
+    /* This animation makes a button briefly shrink and grow
+       when a student clicks it. */
+    @keyframes buttonClick {
+      0% { transform: scale(1); }
+      50% { transform: scale(0.92); }
+      100% { transform: scale(1); }
+    }
 
-        /* Applies the click animation to a button temporarily */
-        button.clicked {
-            animation: buttonClick 0.3s ease;
-        }
+    /* Applied with JavaScript when a button is clicked. */
+    button.clicked {
+      animation: buttonClick 0.3s ease;
+    }
 
-        /* Changes the eye color from green to blue when the blue-eyes class is added */
-        .blue-eyes .eye-color {
-            fill: #175282;
-        }
+    /* When the class blue-eyes is added to the SVG,
+       the eye-color elements change from green to blue. */
+    .blue-eyes .eye-color {
+      fill: #175282;
+    }
 
-        /* Flips and shrinks the mouth to create a sad expression */
-        .sad .mouth {
-            transform: rotate(180deg) scale(0.5);
-            transform-origin: 340px 390px;
-        }
+    /* When the class sad is added, the mouth flips upside down
+       so the cat looks sad instead of happy. */
+    .sad .mouth {
+      transform: rotate(180deg) scale(0.5);
+      transform-origin: 340px 390px;
+    }
 
-        /* Eye movement animation for the cat */
-        @keyframes moveEyes {
-            20% { transform: translate(-18px, -20px); }
-            40% { transform: translate(0, 0); }
-            65% { transform: translate(18px, -20px); }
-            100% { transform: translate(18px, 0); }
-        }
+    /* Animation for moving the pupil/iris shapes. */
+    @keyframes moveEyes {
+      20% { transform: translate(-18px, -20px); }
+      40% { transform: translate(0, 0); }
+      65% { transform: translate(18px, -20px); }
+      100% { transform: translate(18px, 0); }
+    }
 
-        /* Moves the pupils when the cat is in move-around mode */
-        .move-around .inner-eye-group {
-            animation: moveEyes 12s infinite;
-        }
+    /* Only animate the eye groups when move-around is active. */
+    .move-around .inner-eye-group {
+      animation: moveEyes 12s infinite;
+    }
 
-        /* Left whisker movement animation */
-        @keyframes leftWhiskers {
-            20% { transform: rotate(5deg); }
-            60% { transform: rotate(-5deg); }
-        }
+    /* Left whisker animation. */
+    @keyframes leftWhiskers {
+      20% { transform: rotate(5deg); }
+      60% { transform: rotate(-5deg); }
+    }
 
-        .move-around .left-whiskers {
-            animation: leftWhiskers 3s infinite;
-            transform-origin: 325px 350px;
-        }
+    .move-around .left-whiskers {
+      animation: leftWhiskers 3s infinite;
+      transform-origin: 325px 350px;
+    }
 
-        /* Right whisker movement animation */
-        @keyframes rightWhiskers {
-            5% { transform: rotate(-2deg); }
-            90% { transform: rotate(7deg); }
-        }
+    /* Right whisker animation. */
+    @keyframes rightWhiskers {
+      5% { transform: rotate(-2deg); }
+      90% { transform: rotate(7deg); }
+    }
 
-        .move-around .right-whiskers {
-            animation: rightWhiskers 3s infinite;
-            transform-origin: 325px 350px;
-        }
+    .move-around .right-whiskers {
+      animation: rightWhiskers 3s infinite;
+      transform-origin: 325px 350px;
+    }
 
-        /* Main head movement animation for the cat */
-        @keyframes moveCat {
-            20% { transform: rotateY(10deg) rotateX(10deg); }
-            40% { transform: rotateY(25deg) rotateX(10deg); }
-            60% { transform: rotateY(-10deg) rotateX(-10deg); }
-            85% { transform: rotateY(-10deg) rotateX(-16deg); }
-        }
+    /* This animation adds gentle movement to the full cat. */
+    @keyframes moveCat {
+      20% { transform: rotateY(10deg) rotateX(10deg); }
+      40% { transform: rotateY(25deg) rotateX(10deg); }
+      60% { transform: rotateY(-10deg) rotateX(-10deg); }
+      85% { transform: rotateY(-10deg) rotateX(-16deg); }
+    }
 
-        /* Applies movement to the whole SVG when move-around is active */
-        .move-around {
-            animation: moveCat 8s infinite;
-            transform-origin: center;
-            transform-box: fill-box;
-        }
+    .move-around {
+      animation: moveCat 8s infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
 
-        /* Improves keyboard accessibility for buttons */
-        .control-btn:focus-visible {
-            outline: 3px solid #1d4ed8;
-            outline-offset: 3px;
-        }
-    </style>
+    /* Strong focus style for keyboard users. */
+    .lesson-button:focus-visible {
+      outline: 3px solid #1d4ed8;
+      outline-offset: 3px;
+    }
+  </style>
 </head>
 <body class="bg-gradient-to-t from-blue-200 to-white text-gray-800 font-serif px-4 py-6">
 
